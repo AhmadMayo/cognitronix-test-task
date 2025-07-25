@@ -1,0 +1,9 @@
+@layer reset, antd;
+
+@import url(antd/dist/reset.css) layer(reset);
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}

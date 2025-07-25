@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.label {
+  display: inline-block;
+  width: 15ch;
+  font-weight: 500;
+}
+
+.error {
+  color: var(--ant-color-error);
+}

@@ -1,0 +1,104 @@
+.container {
+  position: relative;
+}
+
+/* Repeat class to increase specifity to override library styling without using important */
+.container .loader.loader.loader {
+  width: 100%;
+  height: 400px;
+  aspect-ratio: 2 / 1;
+}
+
+/* Repeat class to increase specifity to override library styling without using important */
+.slider-button.slider-button.slider-button {
+  --ant-button-default-hover-color: rgba(255, 255, 255, 0.6);
+  --ant-button-default-hover-border-color: rgba(255, 255, 255, 0.6);
+  --ant-color-primary-border: rgba(255, 255, 255, 0.6);
+  z-index: 100;
+  position: absolute;
+  mix-blend-mode: difference;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-button.left {
+  left: 10px;
+}
+
+.slider-button.right {
+  right: 10px;
+}
+
+.slider {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.slide {
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 400px;
+  display: grid;
+  grid-template-rows: 1fr 4rem;
+  grid-template-columns: 1fr;
+  padding: 0.25rem;
+  scroll-snap-align: center;
+}
+
+.image-container {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.image-container [class*="ant-image"] {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.container>[class*="ant-image"] {
+  width: 100%;
+}
+
+.meta-container {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .4) 70%, rgba(0, 0, 0, 0) 100%);
+  color: white
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.error {
+  color: var(--ant-color-error);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}

@@ -1,0 +1,30 @@
+.container {
+  margin-bottom: 0.5rem;
+}
+
+.upload-container {
+  display: inline-block;
+  width: 780px;
+}
+
+.upload-hint {
+  display: inline-block;
+  text-align: start;
+}
+
+.error {
+  color: var(--ant-color-error);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  overflow: hidden;
+  height: 3rem;
+  transition: height ease-out .3s;
+}
+
+.error.hidden {
+  height: 0;
+}
