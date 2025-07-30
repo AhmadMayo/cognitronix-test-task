@@ -2,11 +2,40 @@
 
 ## Front-End
 
+### Tech stack
+
+- Vite: It's the latest toolchain with almost all of the necessary configuration out of the box, and the compatibility with rollup APIs which allows us to utilize the existing ecosystem if we wanted to.
+- React: Mainly because of ant design.
+- Ant Design: It's the most comprehensive components library available in the market across all FE frameworks. It's theming is also highly customizable, and it's very actively maintained.
+- Typescript: The productivity boost gained from the type safety is a huge benefit.
+
+### Development
+
 For the development instruction please check the [dedicated README file](/fe/README.md)
+
+### Limitations and Assumptions
+
+- I assumed that testing the app may include uploading large files, losing the state and being forced to re-upload on page refresh was a huge downside, so I opted to show the previously uploaded folders to prevent this from happening.
+- As it was explicitly stated in the requirements that the images should be shown in a slider, and clicking the image should trigger the prediction, I couldn't come up with a good UX for adding additional functionality. If I had more freedom, I'd show each uploaded folder as a gallery, each image in a card with explicit actions - panning, zooming, cropping, and prediction.
 
 ## Back-End
 
+### Tech stack
+
+- Django: It's "batteries included" philosophy contributed to the commitment to the deadline.
+- djangorestframework: TO be able to build APIs with minimal manual configuration.
+
+### Development
+
 For the development instruction please check the [dedicated README file](/be/README.md)
+
+### Limitations and Assumptions
+
+- The app is only intended for demo purposes, so the risk of filling the storage by uploading multiple large files was not acceptable. So I decided to only keep the last 2 uploaded folders.
+- Another limitation that I intentionally introduced to mitigate the risk of filling the storage, is that the uploaded folder must not exceed 10 MB.
+- Additional validations were ignored, but in real life scenarios they should be implemented, like:
+  - Validating that the uploaded zip file only contains PNG files, and no nested directories.
+  - Validating PNG files by reading the binary header from the contents of the file.
 
 ## LM Model
 
@@ -14,7 +43,11 @@ We used MobileNetV2 via [keras](https://keras.io/) and then we optimized the per
 
 The optimization is done programmatically. When you run the server, the app check if the optimized model exists, and if not, it will create it. Subsequent runs will use the optimized model as it already exists.
 
-### Benchamrking
+### Limitations and Assumptions
+
+- As I don't fully understand the optimization that I did to the model, I may have accidentally caused degradation in the model's prediction capabilities. Additional investigation and testing could be done to ensure higher quality.
+
+### Benchmarking
 
 We have a script that benchmarks the optimized (openvino) vs the unoptimized (tensorflow) models. You can run it like this
 
@@ -32,7 +65,7 @@ The script will run the prediction logic multiple times, and calculate the maxim
 
 Here are the results from my machine:
 
-```
+```bash
 ==================================================
 Benchmark Report
 
