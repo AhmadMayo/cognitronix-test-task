@@ -87,3 +87,7 @@ Benchmark Task (10 runs):
 ```
 
 [Plot](./benchmark_results.png)
+
+## Sequence Diagram
+
+![Sequence Diagram](/Sequence%20Diagram.png "Sequence Diagram")
