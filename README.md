@@ -90,4 +90,4 @@ Benchmark Task (10 runs):
 
 ## Sequence Diagram
 
-![Sequence Diagram](/Sequence%20Diagram.png "Sequence Diagram")
+![Sequence Diagram](/Sequence%20Diagram.png)
